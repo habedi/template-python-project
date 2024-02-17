@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "template-python-project-repo"
+version = "0.1.0"
+description = ""
+authors = ["Hassan Abedi <hassan.abedi.t@gmail.com>"]
+readme = "README.md"
+packages = [{include = "template_python_project_repo"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pylint = "^3.0.3"
+pytest = "^8.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
