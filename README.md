@@ -30,11 +30,12 @@ The repository has the following structure:
 
 - `bin/`: scripts and executables for command line use
 - `data/`: data files and datasets
-- `src/`: source code and notebooks
+- `src/`: source code files
+- `notebooks/`: Jupyter notebooks files
+- `models/`: trained models and model files
 - `tests/`: test files for the source code
 - `pyproject.toml`: project metadata and dependencies
 - `LICENSE`: license information
-- `CHANGELOG.md`: log of notable changes
 - `README.md`: project information and instructions
 
 Feel free to modify the structure to fit your needs.
@@ -43,7 +44,3 @@ Feel free to modify the structure to fit your needs.
 ## License
 
 Files in this repository are licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## CHANGELOG
-
-For a detailed changelog, see the [CHANGELOG.md](CHANGELOG.md) file.
