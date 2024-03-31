@@ -1,4 +1,7 @@
-# Template Repository for Python Projects
+# Template for Python Projects
+
+[![Tests](https://github.com/habedi/template-python-project-repo/actions/workflows/tests.yml/badge.svg)](https://github.com/habedi/template-python-project-repo/actions/workflows/tests.yml)
+[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/habedi/template-python-project-repo)
 
 This repository is as a template for starting Python projects with the following features:
 
@@ -6,23 +9,30 @@ This repository is as a template for starting Python projects with the following
 - [pytest](https://docs.pytest.org/en/stable/) for testing
 - [Pylint](https://www.pylint.org/) for code linting
 
-It is mainly intended for my personal use to start machine learning data science projects but feel free to use it as a starting point for your own projects.
+It is mainly intended for my personal use when starting machine learning data science projects, but feel free to use it
+as a starting point for your own projects.
 
-## Prerequisites
+## Installing Poetry
 
-Before you can use this template, make sure you have Python installed on your system. We are going to use [Poetry](https://python-poetry.org/) for dependency management, which needs Python 3.7 or newer.
+We need to install [Poetry](https://python-poetry.org/) to get started. You can install
+Poetry by running the following command in the shell.
 
-`pip install poetry`
+```bash
+pip install poetry
+```
 
-To initiate the Poetry environment and install the dependency packages, run the following commands in the shell in the root folder of this repository after downloading it.
+When the installation is finished, run the following command in the shell in the root folder of this repository to
+install the dependencies, and create a virtual environment for the project.
 
-`poetry update && poetry init`
+```bash
+poetry install
+```
 
-After that, enter the Poetry environment by invoking the poetry's shell using the following command:
+After that, enter the Poetry environment by invoking the poetry shell command.
 
-`poetry shell`
-
-Edit the `pyproject.toml` file to update the project name, description, and other metadata.
+```bash
+poetry shell
+```
 
 ## Structure
 
@@ -39,8 +49,7 @@ The repository has the following structure:
 - `README.md`: project information and instructions
 
 Feel free to modify the structure to fit your needs.
-  
-  
+
 ## License
 
 Files in this repository are licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

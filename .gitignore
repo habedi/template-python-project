@@ -67,7 +67,7 @@ tmp/
 # Dependency lock files (uncomment to ignore)
 poetry.lock
 
-# Miscellaneous files
-# Add any additional file patterns to ignore specific to your project down here
+# Miscellaneous files and directories to ignore
+# Add any additional file patterns a directory names that should be ignored down here
 
 

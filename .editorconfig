@@ -3,10 +3,10 @@
 # Top-most EditorConfig file
 root = true
 
-# Python specific settings, complying with PEP 8 style guide
+# Python specific settings, complying with PEP 8 style guide, except for the line length
 [*.py]
 indent_size = 4
-max_line_length = 79
+max_line_length = 120
 
 # Markdown files
 [*.md]
@@ -14,14 +14,17 @@ trim_trailing_whitespace = false
 
 # Bash scripts
 [*.sh]
-indent_size = 4
+indent_size = 2
 
 # SQL files
 [*.sql]
-indent_size = 4
-
-# YAML files
-[*.yaml]
 indent_size = 2
 
+# YAML files
+[*.yml]
+indent_size = 2
+
+# JSON files
+[*.json]
+indent_size = 2
 
