@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{ include = "template_python_project_repo" }]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 pylint = "^3.0.3"
 pytest = "^8.0.1"
 jupyter = "^1.0.0"
@@ -19,3 +19,6 @@ pandas = "^2.2.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [".", "bin", "src"]
