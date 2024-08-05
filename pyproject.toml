@@ -11,10 +11,9 @@ python = "^3.9"
 pylint = "^3.0.3"
 pytest = "^8.0.1"
 jupyter = "^1.0.0"
-polars = "^0.20.17"
 seaborn = "^0.13.2"
 pandas = "^2.2.1"
-
+mypy = "^1.11.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -22,3 +21,10 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 pythonpath = [".", "bin", "src"]
+
+[tool.mypy]
+python_version = "3.9"
+ignore_missing_imports = true
+disallow_untyped_calls = true
+strict_optional = true
+warn_redundant_casts = true
