@@ -3,7 +3,8 @@
 [![Tests](https://github.com/habedi/template-python-project-repo/actions/workflows/tests.yml/badge.svg)](https://github.com/habedi/template-python-project-repo/actions/workflows/tests.yml)
 [![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/habedi/template-python-project-repo)
 
-This repository is as a template for starting Python projects. It includes a basic structure for organizing the things like code,
+This repository is as a template for starting Python projects. It includes a basic structure for organizing the things
+like code,
 data, and notebooks, as well as a configuration file for managing the dependencies using Poetry. The repository also
 includes a GitHub Actions workflow for running tests on the codebase.
 
@@ -12,8 +13,10 @@ as a starting point for your own projects if you find it useful.
 
 ## Installing Poetry
 
-We use [Poetry](https://python-poetry.org/) for managing the dependencies and virtual environment for the project. To get
-started, you need to install Poetry on your machine. We can install Poetry by running the following command in the command
+We use [Poetry](https://python-poetry.org/) for managing the dependencies and virtual environment for the project. To
+get
+started, you need to install Poetry on your machine. We can install Poetry by running the following command in the
+command
 line using pip.
 
 ```bash
