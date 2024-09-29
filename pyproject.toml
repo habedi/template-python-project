@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{ include = "template_python_project_repo" }]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 pylint = "^3.0.3"
 pytest = "^8.0.1"
 jupyter = "^1.0.0"
@@ -23,7 +23,7 @@ build-backend = "poetry.core.masonry.api"
 pythonpath = [".", "bin", "src"]
 
 [tool.mypy]
-python_version = "3.9"
+python_version = "3.10"
 ignore_missing_imports = true
 disallow_untyped_calls = true
 strict_optional = true
