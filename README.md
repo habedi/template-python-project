@@ -1,7 +1,8 @@
 # Template for Python Projects
 
 [![Tests](https://github.com/habedi/template-python-project-repo/actions/workflows/tests.yml/badge.svg)](https://github.com/habedi/template-python-project-repo/actions/workflows/tests.yml)
-[![Made with Love](https://img.shields.io/badge/Made%20with-Love-red.svg)](https://github.com/habedi/template-python-project-repo)
+[![Python version](https://img.shields.io/badge/Python-%3E=3.10-blue)](https://github.com/habedi/template-python-project-repo)
+[![License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/habedi/template-python-project-repo/blob/main/LICENSE)
 
 This repository is as a template for starting Python projects. It includes a basic structure for organizing the things
 like code,
