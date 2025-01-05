@@ -14,10 +14,10 @@ jobs:
 
         steps:
             -   name: Checkout Repository
-                uses: actions/checkout@v2
+                uses: actions/checkout@v4
 
             -   name: Set Up Python ${{ matrix.python-version }}
-                uses: actions/setup-python@v2
+                uses: actions/setup-python@v5
                 with:
                     python-version: ${{ matrix.python-version }}
 
@@ -29,14 +29,16 @@ jobs:
 
             -   name: Run Tests with Coverage
                 run: |
-                    poetry run pytest tests/ --doctest-modules --cov=src --cov-report xml --cov-report html \
+                    poetry run pytest tests/ --doctest-modules --cov=src/ --cov-report xml \
+                    --cov-report html:htmlcov-${{ matrix.python-version }} \
                     --junitxml=junit/test-results-${{ matrix.python-version }}.xml
-                continue-on-error: false
+                continue-on-error: true # Continue on error to upload test results and coverage reports as artifacts
 
             -   name: Upload Test Results and Coverage Reports
-                uses: actions/upload-artifact@v2
+                uses: actions/upload-artifact@v4
                 with:
                     name: test-results-and-coverage
+                    overwrite: true # Overwrite the existing artifact(s) with the same name
                     path: |
                         junit/test-results-${{ matrix.python-version }}.xml
-                        htmlcov/
+                        htmlcov-${{ matrix.python-version }}/

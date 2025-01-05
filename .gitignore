@@ -41,6 +41,9 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
+test-reports/
+test-report.xml
+test-results.xml
 
 # IDE specific files and directories
 .idea/
