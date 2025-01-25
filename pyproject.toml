@@ -19,6 +19,8 @@ pytest-cov = "^6.0.0"
 pytest-mock = "^3.14.0"
 mypy = "^1.11.1"
 ruff = "^0.8.6"
+black = "^24.10.0"
+flake8 = "^7.1.1"
 
 [tool.poetry.scripts]
 cli_script = "src.cli:main"
@@ -28,7 +30,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
-pythonpath = [".", "src", 'bin']
+pythonpath = [".", "src", 'bin', 'notebooks']
 
 [tool.mypy]
 python_version = "3.10"
@@ -69,14 +71,14 @@ exclude = [
 ]
 line-length = 100
 indent-width = 4
-src = ["mongo_analyser", "tests"]
-target-version = "py311"
+src = ["src", "tests", "bin", "notebooks"]
+target-version = "py310"
 
 [tool.ruff.lint]
 select = ["ANN", "D", "E", "F", "I"]
 ignore = [
-    "ANN101", # Don't annotate self
-    "ANN102"  # Don't annotate cls
+    # Ignore missing docstrings
+    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107",
 ]
 fixable = ["ALL"]
 unfixable = []
