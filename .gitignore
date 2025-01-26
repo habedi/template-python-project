@@ -44,6 +44,7 @@ coverage.xml
 test-reports/
 test-report.xml
 test-results.xml
+.benchmarks/
 
 # IDE specific files and directories
 .idea/
