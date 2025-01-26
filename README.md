@@ -31,7 +31,7 @@ template-python-project/
 ├── src/         # Source code for the project
 ├── models/      # ML models and related files
 ├── tests/       # Unit tests and test files
-├── pyproject.toml  # Project metadata and dependencies
+├── pyproject.toml  # Poetry configuration file
 ├── LICENSE      # License information
 ├── README.md    # Project documentation
 └── Makefile     # Makefile for managing common tasks like linting and testing
