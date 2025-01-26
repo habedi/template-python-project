@@ -12,15 +12,13 @@ packages = [{ include = "src", from = "." }]
 [tool.poetry.dependencies]
 python = "^3.10"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 poetry-dynamic-versioning = "^1.4.0"
 pytest = "^8.0.1"
 pytest-cov = "^6.0.0"
 pytest-mock = "^3.14.0"
 mypy = "^1.11.1"
-ruff = "^0.8.6"
-black = "^24.10.0"
-flake8 = "^7.1.1"
+ruff = "^0.9.3"
 
 [tool.poetry.scripts]
 cli_script = "src.cli:main"
