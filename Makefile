@@ -18,7 +18,7 @@ setup: ## Install dependencies for development (need sudo and make installed alr
 
 .PHONY: install
 install: ## Install Python dependencies
-	$(POETRY) install
+	$(POETRY) install --no-root
 
 .PHONY: update
 update: ## Update Python dependencies

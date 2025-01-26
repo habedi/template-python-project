@@ -12,11 +12,13 @@ packages = [{ include = "src", from = "." }]
 [tool.poetry.dependencies]
 python = "^3.10"
 
+# Development dependencies (need `--with dev` flag)
 [tool.poetry.group.dev.dependencies]
 poetry-dynamic-versioning = "^1.4.0"
 pytest = "^8.0.1"
 pytest-cov = "^6.0.0"
 pytest-mock = "^3.14.0"
+pytest-benchmark = "^5.1.0"
 mypy = "^1.11.1"
 ruff = "^0.9.3"
 
