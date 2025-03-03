@@ -1,8 +1,8 @@
 # A Template Repository for Data Science Projects
 
-[![Tests](https://github.com/habedi/template-python-project/actions/workflows/tests.yml/badge.svg)](https://github.com/habedi/template-python-project/actions/workflows/tests.yml)
-[![Python Version](https://img.shields.io/badge/Python-%3E=3.10-blue)](https://github.com/habedi/template-python-project)
-[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/habedi/template-python-project/blob/main/LICENSE)
+[![Tests](https://img.shields.io/github/actions/workflow/status/habedi/template-python-project/tests.yml?label=tests&style=flat&labelColor=555555&logo=github)](https://github.com/habedi/template-python-project/actions/workflows/tests.yml)
+[![Python Version](https://img.shields.io/badge/python-%3E=3.10-3776ab?style=flat&labelColor=555555&logo=python)](https://github.com/habedi/template-python-project)
+[![License](https://img.shields.io/badge/license-MIT-007ec6?style=flat&labelColor=555555&logo=open-source-initiative)](https://github.com/habedi/template-python-project/blob/main/LICENSE)
 
 This is a template repository for starting new data science and machine learning projects in Python.
 
