@@ -18,15 +18,15 @@
 
 ---
 
-This is a template for Python projects, specifically designed for machine learning and data science projects.
+This is a template for Python projects, specifically designed for machine learning (ML) and data science (DS) projects.
 I made it to help me have a consistent structure across all my personal and professional projects.
 I am sharing it here in case it can be useful to others.
 
 ### Features
 
-- A predefined file and folder layout that should be suitable for most machine learning and data science projects.
-- Easy dependency and environment management with [Poetry](https://python-poetry.org/).
-  or [uv](https://astral.sh/uv), or any other modern Python dependency manager.
+- A predefined file and folder layout that should be suitable for most ML and DS projects.
+- Easy dependency and environment management with [Poetry](https://python-poetry.org/), [uv](https://astral.sh/uv), or
+  any other modern Python dependency manager.
 - Extra configuration files for various tasks like linting, formatting, testing, etc.
 - Comes with a lot of quality-of-life features to help you get started quickly, like a `Makefile` and GitHub Actions
   workflows for common tasks.
