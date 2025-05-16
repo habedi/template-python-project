@@ -54,6 +54,14 @@ format: ## Format code
 typecheck: ## Typecheck code
 	$(DEP_MNGR) run mypy .
 
+.PHONY: precommit
+precommit: ## Run pre-commit hooks
+	$(DEP_MNGR) run pre-commit run --all-files
+
+.PHONY: precommit-install
+precommit-install: ## Install pre-commit hooks
+	$(DEP_MNGR) run pre-commit install
+
 # Documentation
 .PHONY: docs
 docs: ## Build documentation
