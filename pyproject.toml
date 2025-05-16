@@ -1,85 +1,102 @@
-[tool.poetry]
+[project]
 name = "template-python-project"
-version = "0.1.0"
-description = "A template repository for data science and machine learning projects in Python."
-authors = ["Hassan Abedi <hassan.abedi.t@gmail.com>"]
-maintainers = ["Hassan Abedi <hassan.abedi.t@gmail.com>"]
+version = "0.1.0a1"
+description = "A template for data science and machine learning projects in Python"
 readme = "README.md"
-repository = "https://github.com/habedi/template-python-project"
-license = "MIT"
-packages = [{ include = "src", from = "." }]
+license = { text = "MIT" }
+authors = [
+    { name = "Hassan Abedi", email = "hassan.abedi.t@gmail.com" }
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
+requires-python = ">=3.10,<4.0"
+dependencies = [
+    "pandas (>=2.2.3,<3.0.0)",
+    "numpy (>=2.2.5,<3.0.0)",
+    "seaborn (>=0.13.2,<0.14.0)",
+    "jupyter (>=1.1.1,<2.0.0)",
+    "kaggle (>=1.7.4.5,<2.0.0.0)",
+    "huggingface-hub (>=0.31.2,<0.32.0)",
+    "polars (>=1.29.0,<2.0.0)",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "icecream (>=2.1.4,<3.0.0)",
+    "datasets (>=3.6.0,<4.0.0)",
+]
 
-# Development dependencies (need `--with dev` flag)
-[tool.poetry.group.dev.dependencies]
-poetry-dynamic-versioning = "^1.4.0"
-pytest = "^8.0.1"
-pytest-cov = "^6.0.0"
-pytest-mock = "^3.14.0"
-pytest-benchmark = "^5.1.0"
-mypy = "^1.11.1"
-ruff = "^0.9.3"
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.1",
+    "pytest-cov>=6.0.0",
+    "pytest-mock>=3.14.0",
+    "pytest-asyncio (>=0.26.0,<0.27.0)",
+    "mypy>=1.11.1",
+    "ruff>=0.9.3",
+    "pre-commit (>=4.2.0,<5.0.0)",
+    "griffe (>=1.7.3,<2.0.0)",
+    "mkdocs (>=1.6.1,<2.0.0)",
+    "mkdocstrings-python (>=1.16.10,<2.0.0)",
+    "mkdocs-material (>=9.6.14,<10.0.0)",
+    "types-requests (>=2.32.0.20250515,<3.0.0.0)"
+]
 
-[tool.poetry.scripts]
-cli_script = "src.cli:main"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[project.urls]
+Repository = "https://github.com/habedi/template-python-project"
+Documentation = "https://github.com/habedi/template-python-project/blob/main/docs/index.md"
 
 [tool.pytest.ini_options]
-pythonpath = [".", "src", 'bin', 'notebooks']
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = [
+    "--tb=short",
+    #"--disable-warnings",
+    "--cov=src",
+    "--cov-branch",
+    "--cov-report=term",
+    "--cov-report=xml",
+    "-rs"
+]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+asyncio_default_test_loop_scope = "function"
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["src"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+show_missing = false
+skip_empty = true
+precision = 2
 
 [tool.mypy]
 python_version = "3.10"
 ignore_missing_imports = true
+disallow_untyped_defs = true
 disallow_untyped_calls = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+warn_return_any = true
 strict_optional = true
 warn_redundant_casts = true
+exclude = "^(scripts/|tests/)"
 
-[tool.poetry-dynamic-versioning]
-enable = true
-vcs = "git"
-versioning = "semver"  # Semantic Versioning
-
-# Ruff configuration
 [tool.ruff]
 exclude = [
-    ".bzr",
-    ".direnv",
-    ".eggs",
-    ".git",
-    ".git-rewrite",
-    ".hg",
-    ".mypy_cache",
-    ".nox",
-    ".pants.d",
-    ".pytype",
-    ".ruff_cache",
-    ".svn",
-    ".tox",
-    ".venv",
-    "__pypackages__",
-    "_build",
-    "buck-out",
-    "build",
-    "dist",
-    "node_modules",
-    "venv"
+    ".bzr", ".direnv", ".eggs", ".git", ".git-rewrite", ".hg", ".mypy_cache",
+    ".nox", ".pants.d", ".pytype", ".ruff_cache", ".svn", ".tox", ".venv",
+    "__pypackages__", "_build", "buck-out", "build", "dist", "node_modules",
+    "venv", "tests"
 ]
 line-length = 100
 indent-width = 4
-src = ["src", "tests", "bin", "notebooks"]
+src = ["src"]
 target-version = "py310"
+unsafe-fixes = false
 
 [tool.ruff.lint]
-select = ["ANN", "D", "E", "F", "I"]
-ignore = [
-    # Ignore missing docstrings
-    "D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107",
-]
+select = ["ANN", "E", "F", "I", "W", "B", "RUF", "SIM", "C90"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]
 fixable = ["ALL"]
 unfixable = []
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
@@ -94,4 +111,4 @@ line-ending = "auto"
 convention = "google"
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = []
+"tests/**/*.py" = ["ANN001", "ANN201"]

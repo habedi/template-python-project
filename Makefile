@@ -1,72 +1,59 @@
 # Variables
-PYTHON = python
-PIP = pip
-POETRY = poetry
+PYTHON      ?= python3
+PIP         ?= pip3
+DEP_MNGR    ?= poetry
+DOCS_DIR   ?= docs
 
-# Default target
+# Directories and files to clean
+CACHE_DIRS  = .mypy_cache .pytest_cache .ruff_cache
+COVERAGE    = .coverage htmlcov coverage.xml
+DIST_DIRS   = dist junit
+TMP_DIRS   = site
+
 .DEFAULT_GOAL := help
 
 .PHONY: help
-help: ## Show this help message
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+help: ## Show help for all targets
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+	awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
 
+# Setup & Installation
 .PHONY: setup
-setup: ## Install dependencies for development (need sudo and make installed already)
+setup: ## Install system dependencies and dependency manager (e.g., Poetry)
 	sudo apt-get update
 	sudo apt-get install -y python3-pip
-	$(PIP) install poetry
+	$(PIP) install --upgrade pip
+	$(PIP) install $(DEP_MNGR)
 
 .PHONY: install
 install: ## Install Python dependencies
-	$(POETRY) install --no-root
+	$(DEP_MNGR) install --all-extras --no-interaction --no-root
 
-.PHONY: update
-update: ## Update Python dependencies
-	$(POETRY) update
-
+# Quality & Testing
 .PHONY: test
-test: ## Run unit tests
-	$(POETRY) run pytest
+test: ## Run tests
+	$(DEP_MNGR) run pytest
 
 .PHONY: lint
-lint: ## Perform linting with ruff
-	$(POETRY) run ruff check .
+lint: ## Run linter checks
+	$(DEP_MNGR) run ruff check --fix
 
 .PHONY: format
-format: ## Format code with ruff (not inplace by default)
-	$(POETRY) run ruff format .
+format: ## Format code
+	$(DEP_MNGR) run ruff format
 
 .PHONY: typecheck
-typecheck: ## Perform typechecking with mypy
-	$(POETRY) run mypy .
+typecheck: ## Typecheck code
+	$(DEP_MNGR) run mypy .
 
+# Documentation
+.PHONY: docs
+docs: ## Build documentation
+	$(DEP_MNGR) run mkdocs build
+
+# Maintenance
 .PHONY: clean
-clean: ## Remove temporary files and directories
+clean: ## Remove caches and build artifacts
 	find . -type f -name '*.pyc' -delete
-	find . -type d -name '__pycache__' -exec rm -r {} +
-	rm -rf .mypy_cache
-	rm -rf .pytest_cache
-	rm -rf .ruff_cache
-	rm -rf .coverage
-	rm -rf htmlcov
-	rm -rf coverage.xml
-	rm -rf junit
-
-.PHONY: coverage
-coverage: ## Run tests with code coverage
-	$(POETRY) run pytest --cov=src --cov-report=term-missing
-
-.PHONY: build
-build: ## Build the project
-	$(POETRY) build
-
-.PHONY: check
-check: lint typecheck test ## Perform linting, typechecking, and run tests
-
-.PHONY: precommit
-precommit: ## Install and run pre-commit hooks
-	$(POETRY) run pre-commit install
-	$(POETRY) run pre-commit run --all-files
-
-.PHONY: all
-all: install check build ## Install Python dependencies, run checks, and build the project
+	find . -type d -name '__pycache__' -exec rm -rf {} +
+	rm -rf $(CACHE_DIRS) $(COVERAGE) $(DIST_DIRS) $(TMP_DIRS)

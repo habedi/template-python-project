@@ -1,12 +1,10 @@
-name: Run Tests
+name: Run Linter Checks
 
 on:
   workflow_dispatch:
-  workflow_call:
-  pull_request:
-    branches:
-      - main
-      - develop
+  push:
+    tags:
+      - 'v*'
 
 permissions:
   contents: read
@@ -17,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        # Define the Python versions to test against
+        # Define the Python versions check against
         python-version: [ "3.10", "3.11", "3.12", "3.13" ]
 
     steps:
@@ -36,11 +34,4 @@ jobs:
 
       - name: Run Tests with Coverage
         run: |
-          make test
-        continue-on-error: true
-
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-        continue-on-error: true
+          make lint
