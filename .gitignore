@@ -41,9 +41,7 @@ coverage.xml
 *.cover
 .hypothesis/
 .pytest_cache/
-test-reports/
-test-report.xml
-test-results.xml
+.benchmarks/
 
 # IDE specific files and directories
 .idea/
@@ -60,7 +58,9 @@ test-results.xml
 *.tmp
 temp/
 tmp/
+tmp2/
 out/
+out2/
 
 # Database files (SQLite, DuckDB, etc.)
 *.duckdb
@@ -71,5 +71,9 @@ out/
 # Dependency lock files (uncomment to ignore)
 poetry.lock
 
+# Documentation files
+site/
+
 # Miscellaneous files and directories to ignore
 # Add any additional file patterns a directory names that should be ignored down here
+.env
