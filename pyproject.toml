@@ -43,6 +43,9 @@ dev = [
 Repository = "https://github.com/habedi/template-python-project"
 Documentation = "https://github.com/habedi/template-python-project/blob/main/docs/index.md"
 
+[tool.poetry]
+package-mode = false
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
